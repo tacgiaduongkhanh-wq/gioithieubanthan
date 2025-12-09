@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Khánh - Tác Giả & Nhà Đào Tạo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --bg-accent: #0F172A;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-accent: #FFFFFF;
+            --accent-color: #D97706;
+            --accent-hover: #B45309;
+            --border-color: #E2E8F0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .dark {
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-accent: #F8FAFC;
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
+            --text-accent: #0F172A;
+            --accent-color: #F59E0B;
+            --accent-hover: #FBBF24;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.4);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            opacity: 0.05;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+            max-height: 600px;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Story Section */
+        .story-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateX(10px);
+        }
+
+        .story-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .story-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1.5rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-overlay p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Mission Section */
+        .mission {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .mission p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-accent);
+            color: var(--text-accent);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-accent);
+            opacity: 0.8;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                max-height: 400px;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        /* Dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            html {
+                color-scheme: dark;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="subtitle">TÁC GIẢ & NHÀ ĐÀO TẠO</div>
+                <h1>Dương Khánh</h1>
+                <p>Truyền cảm hứng và giúp hàng ngàn học sinh Việt Nam trở nên bản lĩnh, thành công và hạnh phúc hơn.</p>
+                <a href="#contact" class="cta-button">
+                    <span>Liên hệ với tôi</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Năm Học Sinh Giỏi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Mục Tiêu Học Sinh</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Học Viên Đã Đào Tạo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="img/duongkhanh-chandung.jpg" alt="Dương Khánh - Chân dung">
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story">
+        <h2 class="section-title">Hành Trình Vượt Khó</h2>
+        <div class="story-content">
+            <div class="story-card">
+                <h3><i class="fas fa-graduation-cap"></i> Xuất Phát Điểm</h3>
+                <p>Sinh ra trong một gia đình khó khăn, luôn nỗ lực học tập. 12 năm học sinh giỏi, đạt nhiều giải cấp thành phố, được tuyển thẳng vào trường cấp 3 huyện. Đạt huy chương bạc giải đối kháng, giải đại hội thể dục thể thao lần thứ 8 võ thuật cổ truyền.</p>
+            </div>
+
+            <div class="story-card">
+                <h3><i class="fas fa-heart"></i> Thử Thách & Quyết Tâm</h3>
+                <p>Tuổi dậy thì, tôi mắc phải căn bệnh Rối loạn ám ảnh cưỡng chế khiến sức khỏe và tinh thần suy sụp, học tập giảm sút trầm trọng. Khi đối diện với mong manh của sự sống, tôi nhìn thấy hình bóng người mẹ, và chính khoảnh khắc đó khiến tôi quyết tâm một lần nữa đi tìm sự sống. Tôi đến gặp thầy dạy võ và xin học miễn phí, nói với thầy: "Con muốn học vì muốn được sống, chiến thắng chính mình".</p>
+            </div>
+
+            <div class="story-card">
+                <h3><i class="fas fa-trophy"></i> Thành Tựu Hiện Tại</h3>
+                <p>Tự học hoàn toàn (đi học lén vì không có tiền), đạt 12 năm học sinh giỏi và nhiều giải học tập cao cấp thành phố. Hiện đào tạo và truyền cảm hứng cho hàng ngàn học sinh thay đổi, là Giám đốc Học viện Giáo dục MMOST, có một gia đình hạnh phúc viên mãn.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="expertise">
+        <h2 class="section-title">Chuyên Môn & Đóng Góp</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-book"></i></div>
+                <h3>Tác Giả</h3>
+                <p>Viết sách, chia sẻ kiến thức và kinh nghiệm sống để truyền cảm hứng cho thế hệ trẻ</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-users"></i></div>
+                <h3>Đào Tạo Học Sinh</h3>
+                <p>Các khóa học kỹ năng sống cho độ tuổi 6-17: Thủ lĩnh thực chiến, Trải nghiệm tự lập, Chiến binh lan tỏa, Big Hero...</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Coaching Phụ Huynh</h3>
+                <p>Tư vấn và hỗ trợ phụ huynh về phương pháp giáo dục con cái hiệu quả</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Hình Ảnh Hoạt Động</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="img/duongkhanh-danggiangday.jpg" alt="Dương Khánh đang giảng dạy">
+                <div class="gallery-overlay">
+                    <h4>Giảng Dạy Trực Tiếp</h4>
+                    <p>Truyền đạt kiến thức và kinh nghiệm</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/duongkhanh-lophoc.jpg" alt="Lớp học">
+                <div class="gallery-overlay">
+                    <h4>Môi Trường Học Tập</h4>
+                    <p>Cùng học viên phát triển</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/duongkhanh-phatbieu.jpg" alt="Phát biểu">
+                <div class="gallery-overlay">
+                    <h4>Sự Kiện & Hội Thảo</h4>
+                    <p>Chia sẻ tại các diễn đàn giáo dục</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/duongkhanh-training.jpg" alt="Training">
+                <div class="gallery-overlay">
+                    <h4>Hoạt Động Ngoại Khóa</h4>
+                    <p>Trải nghiệm thực tế cùng học viên</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/duongkhanh-va-hocsinh.jpg" alt="Với học sinh">
+                <div class="gallery-overlay">
+                    <h4>Kết Nối Học Viên</h4>
+                    <p>Đồng hành cùng các em</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/duongkhanh-va-hocvien.jpg" alt="Với học viên">
+                <div class="gallery-overlay">
+                    <h4>Khoảnh Khắc Đáng Nhớ</h4>
+                    <p>Niềm vui và thành công cùng nhau</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="mission-content">
+            <h2>Sứ Mệnh</h2>
+            <p>Trở thành nhà giáo dục truyền cảm hứng, giúp 1.000.000 học sinh Việt Nam bản lĩnh, thành công và hạnh phúc hơn.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Liên Hệ</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <a href="mailto:tacgiaduongkhanh@gmail.com">tacgiaduongkhanh@gmail.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>Zalo / Điện Thoại</h3>
+                <a href="tel:0935513808">0935 513 808</a>
+                <br>
+                <a href="tel:0357985064">035 798 5064</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-facebook"></i></div>
+                <h3>Facebook</h3>
+                <a href="https://www.facebook.com/khanh.duong.14203" target="_blank" rel="noopener noreferrer">facebook.com/khanh.duong.14203</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dương Khánh. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .story-card, .skill-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Lazy load images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
+            });
+        }
+
+        // Console message
+        console.log('%c👋 Chào bạn!', 'font-size: 20px; font-weight: bold; color: #D97706;');
+        console.log('%cĐây là trang cá nhân của Dương Khánh - Tác giả & Nhà đào tạo', 'font-size: 14px;');
+    </script>
+</body>
+</html>
